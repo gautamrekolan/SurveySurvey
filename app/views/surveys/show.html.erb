@@ -1,0 +1,28 @@
+<p>
+  <h1>Survey - <%= @survey.name %></h1>
+</p>
+
+<p>
+  <h1>Description:</h1>
+  <%= @survey.description %>
+</p>
+
+<ol>
+<%= form_tag url_for(:controller => 'surveys', :action => 'respond') do %>
+
+<% @survey.questions.each do |q| %>
+
+	<%= render :partial => 'question_partial', :locals => { :q => q } %>
+
+<% end %>
+</ol>
+<div class="submit">
+	<%= submit_tag "Submit Survey "%>
+</div>
+<% end %>
+
+<p>
+  <%= link_to "Edit", edit_survey_path(@survey) %> |
+  <%= link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", surveys_path %>
+</p>

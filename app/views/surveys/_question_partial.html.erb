@@ -1,0 +1,20 @@
+<% question_name = 'responses[]' + q.id.to_s + '[]' 
+responses = nil
+if params[:responses]
+  responses = params[:responses].first
+end
+%>
+
+  <li>
+    <%= q.content %>
+    <ul>
+    <% q.answers.each do |a| %>
+    	<div class="answer">
+      		<li>
+      			<%= label_tag 'answer' + a.id.to_s, a.content %>
+      			<%= radio_button_tag question_name, a.id, false, :id => 'answer' + a.id.to_s %>
+      		</li>
+     	</div>
+    <% end %>
+    </ul>
+  </li>

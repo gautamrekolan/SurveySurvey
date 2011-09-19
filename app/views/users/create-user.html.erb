@@ -1,0 +1,27 @@
+<h1>Add New User</h1>
+
+<%= form_tag url_for(:controller => 'users', :action => 'admin_create_user'), :id => 'new_user' do %>
+	<div class="field">
+		<%= label_tag 'user_name', 'Name' %><br />
+		<%= text_field_tag 'user[name]' %>
+	</div>
+	<div class="field">
+		<%= label_tag 'user_email', 'User Email' %><br />
+		<%= text_field_tag 'user[email]' %>
+	</div>
+	<div class="field">
+		<%= label_tag 'user_unique_id', 'Unique ID' %><br />
+		<%= text_field_tag 'user[unique_id]' %>
+	</div>
+	<div class="field">
+		<%= label_tag 'user_password', 'Desired User Password' %><br />
+		<%= password_field_tag 'user[password]' %>
+	</div>
+	<div class="field">
+		<%= label_tag 'user_password_confirmation', 'Password Confirmation' %><br />
+		<%= password_field_tag 'user[password_confirmation]' %>
+	</div>
+	<div class="actions">
+		<%= submit_tag "Add New User" %>
+	</div>
+<% end %>

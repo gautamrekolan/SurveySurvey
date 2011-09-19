@@ -1,0 +1,13 @@
+<h1>All Users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+	<%= render @users %>
+</ul>
+
+<%= will_paginate %>
+
+<% if signed_in? and current_user.admin? %>
+<p><%= link_to "New User", 'create-user' %></p>
+<% end %>
